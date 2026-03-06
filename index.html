@@ -1,0 +1,1106 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FMI ONG - Futur Meilleurs pour l'Indigent</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <!-- Font Awesome 6 (gratuit) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* ===== RESET & BASE ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Open Sans', sans-serif;
+            color: #333;
+            line-height: 1.6;
+        }
+        h1, h2, h3, h4 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+        }
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        /* ===== HEADER ===== */
+        header {
+            background: #fff;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        .logo img {
+            height: 50px;
+            margin-right: 10px;
+        }
+        .logo-text {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #2E7D32;
+        }
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        nav ul li a {
+            text-decoration: none;
+            color: #333;
+            padding: 10px 15px;
+            transition: color 0.3s;
+        }
+        nav ul li a:hover {
+            color: #2E7D32;
+        }
+        .menu-toggle {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        .btn-don {
+            background: #FFC107;
+            color: #333;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background 0.3s;
+        }
+        .btn-don:hover {
+            background: #e0a800;
+        }
+        /* ===== CAROUSEL (REMPLACE HERO) ===== */
+        .carousel {
+            position: relative;
+            width: 100%;
+            height: 80vh;
+            overflow: hidden;
+        }
+        .carousel-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+        .carousel-slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            text-align: center;
+        }
+        .carousel-slide.active {
+            opacity: 1;
+        }
+        .carousel-slide .slide-content {
+            background: rgba(0,0,0,0.5);
+            padding: 40px;
+            border-radius: 10px;
+            max-width: 800px;
+        }
+        .carousel-slide h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        .carousel-slide p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
+        .carousel-control {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0,0,0,0.5);
+            color: #fff;
+            border: none;
+            padding: 15px 20px;
+            cursor: pointer;
+            font-size: 1.5rem;
+            z-index: 10;
+            border-radius: 5px;
+        }
+        .carousel-control.prev {
+            left: 20px;
+        }
+        .carousel-control.next {
+            right: 20px;
+        }
+        .carousel-indicators {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+            z-index: 10;
+        }
+        .indicator {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.5);
+            cursor: pointer;
+        }
+        .indicator.active {
+            background: #fff;
+        }
+        /* ===== SECTIONS ===== */
+        .section {
+            padding: 80px 0;
+        }
+        .bg-light {
+            background: #F5F5F5;
+        }
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 50px;
+            color: #2E7D32;
+            position: relative;
+        }
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 3px;
+            background: #2E7D32;
+            margin: 15px auto 0;
+        }
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+        .col {
+            flex: 1 1 300px;
+        }
+        .img-fluid {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
+        /* ===== BAILLEURS ===== */
+        .bailleurs {
+            margin-top: 40px;
+            text-align: center;
+        }
+        .logo-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .logo-item {
+            background: #fff;
+            border: 1px solid #ddd;
+            padding: 20px;
+            min-width: 120px;
+            text-align: center;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+        .logo-item img {
+            max-width: 100px;
+            max-height: 60px;
+        }
+        /* ===== CARTES (OBJECTIFS, EXPERTISE, ACTUALITES) ===== */
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+        .card {
+            background: #fff;
+            padding: 30px 20px;
+            border-radius: 5px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: transform 0.3s;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        .card .icon {
+            font-size: 3rem;
+            color: #2E7D32;
+            margin-bottom: 20px;
+        }
+        .card h3 {
+            margin-bottom: 15px;
+            color: #1976D2;
+        }
+        .card p {
+            font-size: 0.95rem;
+        }
+        .card img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 5px;
+            margin-bottom: 15px;
+        }
+        .btn-small {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 5px 15px;
+            background: #1976D2;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 3px;
+            font-size: 0.9rem;
+        }
+        /* ===== DOCUMENTS ===== */
+        .doc-list {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .doc-item {
+            background: #fff;
+            padding: 15px 20px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        .doc-item i {
+            color: #d32f2f;
+            font-size: 1.5rem;
+        }
+        /* ===== CONTACT ===== */
+        #contact .row {
+            gap: 40px;
+        }
+        form input, form textarea {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-family: inherit;
+        }
+        form button {
+            border: none;
+            cursor: pointer;
+            width: 100%;
+        }
+        #contact .col p {
+            margin-bottom: 10px;
+        }
+        #contact .col i {
+            width: 25px;
+            color: #2E7D32;
+        }
+        .social-icons {
+            margin: 20px 0;
+        }
+        .social-icons a {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background: #2E7D32;
+            color: #fff;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 40px;
+            margin-right: 10px;
+            transition: background 0.3s;
+        }
+        .social-icons a:hover {
+            background: #1976D2;
+        }
+        .map {
+            margin-top: 20px;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+        /* ===== SECTION DON ===== */
+        .don-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
+            margin-top: 30px;
+        }
+        .don-btn {
+            min-width: 120px;
+            font-size: 1.1rem;
+        }
+        .payment-methods {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+            margin: 30px 0;
+        }
+        .payment-method {
+            background: #f8f9fa;
+            border: 2px solid #dee2e6;
+            border-radius: 10px;
+            padding: 20px;
+            width: 180px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .payment-method:hover {
+            border-color: #2E7D32;
+            transform: scale(1.05);
+        }
+        .payment-method i {
+            font-size: 3rem;
+            color: #2E7D32;
+            margin-bottom: 10px;
+        }
+        .payment-method p {
+            font-weight: 600;
+        }
+        .payment-method.selected {
+            border-color: #2E7D32;
+            background: #e8f5e9;
+        }
+        .don-action {
+            text-align: center;
+            margin-top: 30px;
+        }
+        #selected-amount-display {
+            font-weight: bold;
+            color: #2E7D32;
+        }
+        /* Nouveaux styles pour les champs de devise et montant personnalisé */
+        #custom-amount, #currency {
+            padding: 12px;
+            border: 2px solid #2E7D32;
+            border-radius: 5px;
+            font-size: 1rem;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            transition: border-color 0.3s;
+        }
+        #custom-amount:focus, #currency:focus {
+            border-color: #1976D2;
+            outline: none;
+        }
+        /* ===== FOOTER ===== */
+        footer {
+            background: #2E7D32;
+            color: #fff;
+            text-align: center;
+            padding: 30px 0;
+        }
+        footer .footer-links {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 15px 0;
+        }
+        footer .footer-links a {
+            color: #fff;
+            text-decoration: none;
+        }
+        footer .footer-links a:hover {
+            text-decoration: underline;
+        }
+        footer .social-icons a {
+            background: #fff;
+            color: #2E7D32;
+        }
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-wrap: wrap;
+            }
+            nav ul {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                background: #fff;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                padding: 20px;
+                box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+            }
+            nav ul.active {
+                display: flex;
+            }
+            nav ul li {
+                margin: 10px 0;
+            }
+            .menu-toggle {
+                display: block;
+            }
+            .btn-don {
+                order: 3;
+            }
+            .carousel-slide h1 {
+                font-size: 2rem;
+            }
+            .carousel-slide p {
+                font-size: 1rem;
+            }
+            .row {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ===== HEADER ===== -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <!-- Remplacez par votre logo -->
+                <img src="images/logo.png" alt="Logo FMI ONG" height="80">
+                <span class="logo-text">FMI ONG</span>
+            </div>
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="#accueil">Accueil</a></li>
+                    <li><a href="#a-propos">À propos</a></li>
+                    <li><a href="#objectifs">Objectifs</a></li>
+                    <li><a href="#expertise">Expertise</a></li>
+                    <li><a href="#documents">Documents</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                <div class="menu-toggle"><i class="fas fa-bars"></i></div>
+            </nav>
+            <a href="#don" class="btn-don">Faire un don</a>
+        </div>
+    </header>
+
+    <!-- ===== CAROUSEL (ACCUEIL) ===== -->
+    <section id="accueil" class="carousel">
+        <div class="carousel-inner">
+            <!-- Slide 1 - Remplacez l'image par la vôtre -->
+            <div class="carousel-slide active" style="background-image: url('images/slide1.jpg');">
+                <div class="slide-content">
+                    <h1>Construisons ensemble un avenir meilleur pour les personnes indigentes</h1>
+                    <p>ONG de développement basée à Kindu, active au Maniema et dans toute la RDC</p>
+                    <div>
+                        <a href="#objectifs" class="btn btn-primary">Nos actions</a>
+                        <a href="#contact" class="btn btn-secondary">Nous soutenir</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Slide 2 - Remplacez l'image par la vôtre -->
+            <div class="carousel-slide" style="background-image: url('images/slide2.jpg');">
+                <div class="slide-content">
+                    <h1>Appui aux orphelins et déplacés de guerre</h1>
+                    <p>Ensemble, redonnons espoir à ceux qui ont tout perdu</p>
+                    <div>
+                        <a href="#objectifs" class="btn btn-primary">En savoir plus</a>
+                        <a href="#don" class="btn btn-secondary">Faire un don</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Slide 3 - Remplacez l'image par la vôtre -->
+            <div class="carousel-slide" style="background-image: url('images/slide3.jpg');">
+                <div class="slide-content">
+                    <h1>Agriculture durable et autonomisation des femmes</h1>
+                    <p>Des projets concrets pour un développement local</p>
+                    <div>
+                        <a href="#expertise" class="btn btn-primary">Notre expertise</a>
+                        <a href="#contact" class="btn btn-secondary">Contact</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Contrôles -->
+        <button class="carousel-control prev"><i class="fas fa-chevron-left"></i></button>
+        <button class="carousel-control next"><i class="fas fa-chevron-right"></i></button>
+        <!-- Indicateurs -->
+        <div class="carousel-indicators">
+            <span class="indicator active" data-slide="0"></span>
+            <span class="indicator" data-slide="1"></span>
+            <span class="indicator" data-slide="2"></span>
+        </div>
+    </section>
+
+    <!-- ===== À PROPOS ===== -->
+    <section id="a-propos" class="section">
+        <div class="container">
+            <h2 class="section-title">À propos de nous</h2>
+            <div class="row">
+                <div class="col">
+                    <h3>Historique</h3>
+                    <p>Créée le 8 avril 2018 à Kindu (Assemblée constitutive), acte notarié n° 03.12.20, statuts enregistrés.</p>
+                    <h3>Mission</h3>
+                    <p>Accompagnement des paysans sur la chaîne de valeur, autonomisation des femmes, incubateurs agricoles, infrastructures sociales, droits humains. (Art. 3 des statuts)</p>
+                    <h3>Valeurs</h3>
+                    <p>Humilité, intégrité, transparence, participation (Art. 9 du règlement intérieur).</p>
+                    <h3>Siège social</h3>
+                    <p>Avenue Kibombo n°02, Commune Mikelenge, Quartier Tokolote, Kindu, Province du Maniema, RDC.</p>
+                    <h3>Rayon d'action</h3>
+                    <p>Locale (Maniema), nationale (RDC) et régionale (Afrique).</p>
+                </div>
+                <div class="col">
+                    <!-- Image à propos -->
+                    <img src="images/about.jpg" alt="Équipe FMI" class="img-fluid">
+                </div>
+            </div>
+            <!-- Bailleurs -->
+            <div class="bailleurs">
+                <h3>Nos bailleurs</h3>
+                <div class="logo-grid">
+                    <!-- Remplacez par vos logos réels (images) -->
+                    <div class="logo-item"><img src="images/logo-giz.png" alt="GIZ"></div>
+                    <div class="logo-item"><img src="images/logo-pnud.png" alt="PNUD"></div>
+                    <div class="logo-item"><img src="images/logo-cafi.png" alt="CAFI"></div>
+                    <div class="logo-item"><img src="images/logo-acted.png" alt="ACTED"></div>
+                    <div class="logo-item"><img src="images/logo-cefi.png" alt="CEFI"></div>
+                    <div class="logo-item"><img src="images/logo-autre.png" alt="Autre"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== OBJECTIFS ===== -->
+    <section id="objectifs" class="section bg-light">
+        <div class="container">
+            <h2 class="section-title">Nos objectifs</h2>
+            <div class="cards">
+                <div class="card">
+                    <i class="fas fa-tractor icon"></i>
+                    <h3>Agriculture durable</h3>
+                    <p>Accompagnement des paysans sur la chaîne de valeur (cultures vivrières et industrielles).</p>
+                </div>
+                <div class="card">
+                    <i class="fas fa-female icon"></i>
+                    <h3>Autonomisation des femmes</h3>
+                    <p>Promotion et appui aux initiatives féminines.</p>
+                </div>
+                <div class="card">
+                    <i class="fas fa-seedling icon"></i>
+                    <h3>Incubateurs agricoles</h3>
+                    <p>Création d'espaces pour une agriculture durable.</p>
+                </div>
+                <div class="card">
+                    <i class="fas fa-school icon"></i>
+                    <h3>Infrastructures sociales</h3>
+                    <p>Construction/réhabilitation d'écoles, centres de santé, points d'eau.</p>
+                </div>
+                <div class="card">
+                    <i class="fas fa-gavel icon"></i>
+                    <h3>Droits humains</h3>
+                    <p>Protection, plaidoyer, éducation aux droits.</p>
+                </div>
+                <div class="card">
+                    <i class="fas fa-heartbeat icon"></i>
+                    <h3>Santé rurale</h3>
+                    <p>Appui et accompagnement à la santé rurale (VBG, IST, VIH) surtout en milieu rural et sites miniers.</p>
+                </div>
+                <!-- NOUVELLES CARTES AJOUTÉES -->
+                <div class="card">
+                    <i class="fas fa-child icon"></i>
+                    <h3>Appui aux orphelins</h3>
+                    <p>Soutien scolaire, nutritionnel et psychologique aux enfants orphelins de Kindu et environs.</p>
+                </div>
+                <div class="card">
+                    <i class="fas fa-people-arrows icon"></i>
+                    <h3>Aide aux déplacés de guerre</h3>
+                    <p>Assistance humanitaire, abris, nourriture et accompagnement psychosocial pour les personnes déplacées suite aux conflits.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== EXPERTISE ===== -->
+    <section id="expertise" class="section">
+        <div class="container">
+            <h2 class="section-title">Notre expertise</h2>
+            <div class="cards">
+                <div class="card">
+                    <i class="fas fa-map-marked-alt icon"></i>
+                    <h3>Cartographie & SIG</h3>
+                    <p>Réalisation de cartes thématiques, zonage, suivi de projets.</p>
+                </div>
+                <div class="card">
+                    <i class="fas fa-database icon"></i>
+                    <h3>Collecte de données</h3>
+                    <p>Enquêtes de terrain, méthodes participatives, outils numériques (ODK, KoboToolbox).</p>
+                </div>
+                <div class="card">
+                    <i class="fas fa-server icon"></i>
+                    <h3>Gestion de bases de données</h3>
+                    <p>Conception, administration, sécurisation.</p>
+                </div>
+                <div class="card">
+                    <i class="fas fa-chart-line icon"></i>
+                    <h3>Analyse et interprétation</h3>
+                    <p>Traitement statistique, rapports, visualisation.</p>
+                </div>
+                <div class="card">
+                    <i class="fas fa-utensils icon"></i>
+                    <h3>Service traiteur</h3>
+                    <p>Organisation d'événements, restauration pour ateliers et formations.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== DOCUMENTS LÉGAUX ===== -->
+    <section id="documents" class="section bg-light">
+        <div class="container">
+            <h2 class="section-title">Documents légaux</h2>
+            <p>Accédez à nos textes fondateurs et procès-verbaux. (Administrateur : vous pouvez ajouter d'autres documents via le serveur.)</p>
+            <div class="doc-list">
+                <div class="doc-item"><i class="fas fa-file-pdf"></i> Statuts (2018) - PDF</div>
+                <div class="doc-item"><i class="fas fa-file-pdf"></i> Règlement intérieur (2018) - PDF</div>
+                <div class="doc-item"><i class="fas fa-file-pdf"></i> Acte notarié n° 03.12.20 - PDF</div>
+                <div class="doc-item"><i class="fas fa-file-pdf"></i> PV Assemblée constitutive 08/04/2018 - PDF</div>
+                <div class="doc-item"><i class="fas fa-file-pdf"></i> PV élections 05/04/2024 - PDF</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== ACTUALITÉS / PROJETS ===== -->
+    <section id="actualites" class="section">
+        <div class="container">
+            <h2 class="section-title">Actualités & Projets</h2>
+            <div class="cards">
+                <div class="card">
+                    <img src="images/projet1.jpg" alt="Projet cartographie">
+                    <h3>Appui à la cartographie participative des villages du Maniema</h3>
+                    <p>Description brève du projet.</p>
+                    <a href="#" class="btn-small">Lire la suite</a>
+                </div>
+                <div class="card">
+                    <img src="images/projet2.jpg" alt="Formation femmes">
+                    <h3>Formation des femmes à la collecte de données sur les droits fonciers</h3>
+                    <p>Description brève du projet.</p>
+                    <a href="#" class="btn-small">Lire la suite</a>
+                </div>
+                <div class="card">
+                    <img src="images/projet3.jpg" alt="Catering">
+                    <h3>Catering pour atelier régional sur l'agriculture durable</h3>
+                    <p>Description brève du projet.</p>
+                    <a href="#" class="btn-small">Lire la suite</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CONTACT ===== -->
+    <section id="contact" class="section bg-light">
+        <div class="container">
+            <h2 class="section-title">Contactez-nous</h2>
+            <div class="row">
+                <div class="col">
+                    <h3>Formulaire de contact</h3>
+                    <form action="#" method="post">
+                        <input type="text" name="nom" placeholder="Votre nom" required>
+                        <input type="email" name="email" placeholder="Votre email" required>
+                        <input type="text" name="sujet" placeholder="Sujet">
+                        <textarea name="message" placeholder="Votre message" rows="5" required></textarea>
+                        <button type="submit" class="btn btn-primary">Envoyer</button>
+                    </form>
+                </div>
+                <div class="col">
+                    <h3>Coordonnées</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> Avenue Kibombo n°02, Commune Mikelenge, Quartier Tokolote, Kindu, Maniema, RDC</p>
+                    <p><i class="fas fa-phone-alt"></i> <strong>AWAZI RAMAZANI Guillaume (Président) :</strong> +243 83 200 94 60</p>
+                    <p><i class="fas fa-phone-alt"></i> <strong>KITIMU KITUKA Justine (Vice-Présidente) :</strong> +243 83 399 83 53</p>
+                    <p><i class="fas fa-phone-alt"></i> <strong>KINKE MUKOBE Pierre (Secrétaire) :</strong> +243 82 300 48 87</p>
+                    <p><i class="fas fa-phone-alt"></i> <strong>MOSANGO AWAZI Philomène (Conseillère) :</strong> +243 82 691 18 77</p>
+                    <p><i class="fas fa-phone-alt"></i> <strong>WANGA WABUSOLELA Vincent (Conseiller) :</strong> +243 82 325 13 64</p>
+                    <p><i class="fas fa-phone-alt"></i> <strong>MAOMBI RAMAZANI Esther (Conseillère) :</strong> +243 82 754 81 64</p>
+                    <p><i class="fas fa-phone-alt"></i> <strong>MULEKELWA MWALIBANDA (Conseiller) :</strong> +243 81 165 35 33</p>
+                    <p><i class="fas fa-envelope"></i> <strong>Email :</strong> contact@fmi-ong.org</p>
+                    <!-- Réseaux sociaux -->
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                    <!-- Carte interactive (remplacez par votre iframe) -->
+                    <div class="map">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3979.123456789!2d25.916667!3d-2.95!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMsKwNTcnMDAuMCJTIDI1wrA1NScwMC4wIkU!5e0!3m2!1sfr!2scd!4v1234567890" width="100%" height="250" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== SECTION DON (MODIFIÉE) ===== -->
+    <section id="don" class="section" style="display: none;">
+        <div class="container">
+            <h2 class="section-title">Faire un don</h2>
+            <p>Choisissez un montant prédéfini ou saisissez un montant personnalisé :</p>
+            <div class="don-buttons">
+                <button class="btn btn-primary don-btn" data-amount="10">10</button>
+                <button class="btn btn-primary don-btn" data-amount="20">20</button>
+                <button class="btn btn-primary don-btn" data-amount="50">50</button>
+                <button class="btn btn-primary don-btn" data-amount="100">100</button>
+                <button class="btn btn-primary don-btn" data-amount="500">500</button>
+                <button class="btn btn-primary don-btn" data-amount="1000">1000</button>
+                <button class="btn btn-primary don-btn" data-amount="5000">5000</button>
+                <button class="btn btn-primary don-btn" data-amount="10000">10000</button>
+                <button class="btn btn-primary don-btn" data-amount="50000">50000</button>
+                <button class="btn btn-primary don-btn" data-amount="100000">100000</button>
+                <button class="btn btn-primary don-btn" data-amount="500000">500000</button>
+                <button class="btn btn-primary don-btn" data-amount="1000000">1 000 000</button>
+            </div>
+
+            <div style="text-align: center; margin: 30px 0; display: flex; gap: 20px; justify-content: center; align-items: center; flex-wrap: wrap;">
+                <div>
+                    <label for="currency" style="font-weight: 600; margin-right: 10px;">Devise :</label>
+                    <select id="currency" style="padding: 10px; border: 2px solid #2E7D32; border-radius: 5px; background: white; font-size: 1rem;">
+                        <option value="USD" selected>$ USD</option>
+                        <option value="EUR">€ EUR</option>
+                        <option value="GBP">£ GBP</option>
+                        <option value="JPY">¥ JPY</option>
+                        <option value="CHF">CHF</option>
+                        <option value="CAD">$ CAD</option>
+                        <option value="AUD">$ AUD</option>
+                        <option value="CDF">FC (Franc congolais)</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="custom-amount" style="font-weight: 600; margin-right: 10px;">Montant personnalisé :</label>
+                    <input type="text" id="custom-amount" placeholder="Ex: 10,50" style="padding: 12px; width: 200px; border: 2px solid #2E7D32; border-radius: 5px; font-size: 1rem; box-shadow: 0 2px 5px rgba(0,0,0,0.1);">
+                </div>
+            </div>
+
+            <p style="margin-top: 20px;">Choisissez votre moyen de paiement :</p>
+            <div class="payment-methods">
+                <div class="payment-method" data-method="mobile">
+                    <i class="fas fa-mobile-alt"></i>
+                    <p>Mobile Money</p>
+                </div>
+                <div class="payment-method" data-method="card">
+                    <i class="fas fa-credit-card"></i>
+                    <p>Carte bancaire</p>
+                </div>
+                <div class="payment-method" data-method="paypal">
+                    <i class="fab fa-paypal"></i>
+                    <p>PayPal</p>
+                </div>
+                <div class="payment-method" data-method="bank">
+                    <i class="fas fa-university"></i>
+                    <p>Virement bancaire</p>
+                </div>
+            </div>
+
+            <div class="don-action">
+                <p>Montant sélectionné : <span id="selected-amount-display">0</span></p>
+                <p>Moyen de paiement : <span id="selected-method-display">Non sélectionné</span></p>
+                <button id="confirm-don" class="btn btn-primary" style="margin-top: 20px;" disabled>Confirmer le don</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== SECTION MERCI ===== -->
+    <section id="merci" class="section" style="display: none;">
+        <div class="container">
+            <h2 class="section-title">Merci pour votre générosité !</h2>
+            <p>Nous vous remercions infiniment pour votre don de <span id="montant-don"></span>. Votre soutien nous aide à poursuivre nos missions auprès des personnes indigentes, des orphelins et des déplacés de guerre.</p>
+            <p>Vous allez recevoir un reçu par email et être redirigé vers le moyen de paiement sélectionné.</p>
+            <div style="display: flex; gap: 20px; justify-content: center; margin-top: 30px;">
+                <a href="#don" class="btn btn-secondary">Refaire un don</a>
+                <a href="#accueil" class="btn btn-primary">Retour à l'accueil</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Ir AWAZI RAMAZANI Guillaume. Tous droits réservés.</p>
+            <ul class="footer-links">
+                <li><a href="#">Plan du site</a></li>
+                <li><a href="#">Mentions légales</a></li>
+                <li><a href="#">Politique de confidentialité</a></li>
+            </ul>
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // ===== MENU MOBILE =====
+            const menuToggle = document.querySelector('.menu-toggle');
+            const navMenu = document.querySelector('.nav-menu');
+
+            if (menuToggle) {
+                menuToggle.addEventListener('click', function() {
+                    navMenu.classList.toggle('active');
+                });
+            }
+
+            const navLinks = document.querySelectorAll('.nav-menu a');
+            navLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    navMenu.classList.remove('active');
+                });
+            });
+
+            // ===== SMOOTH SCROLL =====
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({ behavior: 'smooth' });
+                    }
+                });
+            });
+
+            // ===== CAROUSEL =====
+            const slides = document.querySelectorAll('.carousel-slide');
+            const prevBtn = document.querySelector('.carousel-control.prev');
+            const nextBtn = document.querySelector('.carousel-control.next');
+            const indicators = document.querySelectorAll('.indicator');
+            let currentSlide = 0;
+            let slideInterval;
+
+            function showSlide(index) {
+                slides.forEach((slide, i) => {
+                    slide.classList.toggle('active', i === index);
+                });
+                indicators.forEach((indicator, i) => {
+                    indicator.classList.toggle('active', i === index);
+                });
+                currentSlide = index;
+            }
+
+            function nextSlide() {
+                let next = (currentSlide + 1) % slides.length;
+                showSlide(next);
+            }
+
+            function prevSlide() {
+                let prev = (currentSlide - 1 + slides.length) % slides.length;
+                showSlide(prev);
+            }
+
+            if (prevBtn && nextBtn) {
+                prevBtn.addEventListener('click', () => {
+                    prevSlide();
+                    resetInterval();
+                });
+                nextBtn.addEventListener('click', () => {
+                    nextSlide();
+                    resetInterval();
+                });
+            }
+
+            indicators.forEach(indicator => {
+                indicator.addEventListener('click', function() {
+                    const slideIndex = parseInt(this.getAttribute('data-slide'));
+                    showSlide(slideIndex);
+                    resetInterval();
+                });
+            });
+
+            function startInterval() {
+                slideInterval = setInterval(nextSlide, 5000);
+            }
+            function resetInterval() {
+                clearInterval(slideInterval);
+                startInterval();
+            }
+            if (slides.length > 0) startInterval();
+
+            // ===== GESTION DES DONS (MISE À JOUR) =====
+            const donSection = document.getElementById('don');
+            const merciSection = document.getElementById('merci');
+            const montantSpan = document.getElementById('montant-don');
+            const donButtons = document.querySelectorAll('.don-btn');
+            const paymentMethods = document.querySelectorAll('.payment-method');
+            const selectedAmountDisplay = document.getElementById('selected-amount-display');
+            const selectedMethodDisplay = document.getElementById('selected-method-display');
+            const confirmBtn = document.getElementById('confirm-don');
+            const customAmountInput = document.getElementById('custom-amount');
+            const currencySelect = document.getElementById('currency');
+
+            let selectedAmount = 0;
+            let selectedMethod = '';
+            let selectedCurrency = 'USD'; // devise par défaut
+
+            // Fonction pour convertir une saisie avec virgule en nombre flottant
+            function parseAmount(input) {
+                if (!input) return NaN;
+                // Remplacer la virgule par un point et enlever les espaces
+                let str = input.toString().replace(/,/g, '.').replace(/\s/g, '');
+                let num = parseFloat(str);
+                return isNaN(num) ? NaN : num;
+            }
+
+            // Mise à jour du montant depuis l'input personnalisé
+            function updateAmountFromInput() {
+                let val = parseAmount(customAmountInput.value);
+                if (!isNaN(val) && val > 0) {
+                    selectedAmount = val;
+                    // Optionnel : reformater l'affichage avec la virgule
+                    customAmountInput.value = val.toString().replace('.', ',');
+                } else {
+                    selectedAmount = 0;
+                }
+                updateDisplay();
+            }
+
+            // Mise à jour de l'affichage du montant sélectionné avec la devise
+            function updateDisplay() {
+                if (selectedAmount > 0) {
+                    let symbol = getCurrencySymbol(selectedCurrency);
+                    // Afficher avec deux décimales et virgule
+                    selectedAmountDisplay.textContent = symbol + ' ' + selectedAmount.toFixed(2).replace('.', ',');
+                } else {
+                    selectedAmountDisplay.textContent = '0';
+                }
+                updateConfirmButton();
+            }
+
+            // Obtenir le symbole de la devise
+            function getCurrencySymbol(currency) {
+                const symbols = {
+                    'USD': '$', 'EUR': '€', 'GBP': '£', 'JPY': '¥',
+                    'CHF': 'CHF', 'CAD': '$', 'AUD': '$', 'CDF': 'FC'
+                };
+                return symbols[currency] || currency;
+            }
+
+            // Écouteur sur le champ personnalisé
+            customAmountInput.addEventListener('input', updateAmountFromInput);
+
+            // Écouteur sur le changement de devise
+            currencySelect.addEventListener('change', function() {
+                selectedCurrency = this.value;
+                updateDisplay();
+            });
+
+            // Gestion des boutons de montant fixe
+            donButtons.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    let amount = this.getAttribute('data-amount');
+                    selectedAmount = parseFloat(amount);
+                    customAmountInput.value = amount; // synchronisation
+                    updateDisplay();
+                });
+            });
+
+            // Mise à jour du bouton de confirmation
+            function updateConfirmButton() {
+                confirmBtn.disabled = !(selectedAmount > 0 && selectedMethod !== '');
+            }
+
+            // Gestion des moyens de paiement
+            paymentMethods.forEach(method => {
+                method.addEventListener('click', function() {
+                    paymentMethods.forEach(m => m.classList.remove('selected'));
+                    this.classList.add('selected');
+                    selectedMethod = this.getAttribute('data-method');
+                    let methodName = '';
+                    switch(selectedMethod) {
+                        case 'mobile': methodName = 'Mobile Money'; break;
+                        case 'card': methodName = 'Carte bancaire'; break;
+                        case 'paypal': methodName = 'PayPal'; break;
+                        case 'bank': methodName = 'Virement bancaire'; break;
+                    }
+                    selectedMethodDisplay.textContent = methodName;
+                    updateConfirmButton();
+                });
+            });
+
+            // Confirmation du don
+            confirmBtn.addEventListener('click', function() {
+                let symbol = getCurrencySymbol(selectedCurrency);
+                montantSpan.textContent = symbol + ' ' + selectedAmount.toFixed(2).replace('.', ',');
+                donSection.style.display = 'none';
+                merciSection.style.display = 'block';
+                alert('Redirection vers ' + selectedMethodDisplay.textContent + ' pour le paiement de ' + symbol + ' ' + selectedAmount.toFixed(2) + '. (Simulation)');
+                // Réinitialisation
+                selectedAmount = 0;
+                selectedMethod = '';
+                selectedAmountDisplay.textContent = '0';
+                selectedMethodDisplay.textContent = 'Non sélectionné';
+                paymentMethods.forEach(m => m.classList.remove('selected'));
+                customAmountInput.value = '';
+                currencySelect.value = 'USD';
+                selectedCurrency = 'USD';
+                confirmBtn.disabled = true;
+            });
+
+            // Lien "Faire un don" dans le header
+            const donLink = document.querySelector('.btn-don');
+            if (donLink) {
+                donLink.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    merciSection.style.display = 'none';
+                    donSection.style.display = 'block';
+                    document.querySelector('#don').scrollIntoView({ behavior: 'smooth' });
+                });
+            }
+
+            // Lien "Refaire un don" dans la section merci
+            const refaireDonLink = document.querySelector('#merci a[href="#don"]');
+            if (refaireDonLink) {
+                refaireDonLink.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    merciSection.style.display = 'none';
+                    donSection.style.display = 'block';
+                    document.querySelector('#don').scrollIntoView({ behavior: 'smooth' });
+                });
+            }
+
+            // Lien "Retour à l'accueil" dans la section merci
+            const retourAccueilLink = document.querySelector('#merci a[href="#accueil"]');
+            if (retourAccueilLink) {
+                retourAccueilLink.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    merciSection.style.display = 'none';
+                    donSection.style.display = 'none';
+                    document.querySelector('#accueil').scrollIntoView({ behavior: 'smooth' });
+                });
+            }
+
+            // Gestion des ancres dans l'URL
+            if (window.location.hash === '#don') {
+                merciSection.style.display = 'none';
+                donSection.style.display = 'block';
+            }
+            if (window.location.hash === '#merci') {
+                donSection.style.display = 'none';
+                merciSection.style.display = 'block';
+            }
+        });
+    </script>
+</body>
+</html>
