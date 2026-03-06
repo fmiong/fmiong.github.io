@@ -10,6 +10,20 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
     <!-- Font Awesome 6 (gratuit) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- ===== AMÉLIORATIONS SEO ===== -->
+    <meta name="description" content="FMI ONG - Futur Meilleurs pour l'Indigent : ONG de développement basée à Kindu, active au Maniema et dans toute la RDC. Accompagnement des paysans, autonomisation des femmes, droits humains, aide aux orphelins et déplacés.">
+    <meta name="keywords" content="ONG, RDC, Maniema, Kindu, développement, agriculture, femmes, droits humains, orphelins, déplacés, dons">
+    <meta name="author" content="FMI ONG">
+    <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml">
+    <link rel="robots" href="/robots.txt">
+    <!-- ===== ANALYTICS (remplacer G-XXXXXXXX par votre ID) ===== -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXX"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-XXXXXXXX');
+    </script>
     <style>
         /* ===== RESET & BASE ===== */
         * {
@@ -292,6 +306,12 @@
             display: flex;
             align-items: center;
             gap: 15px;
+            text-decoration: none;
+            color: inherit;
+            transition: background 0.3s;
+        }
+        .doc-item:hover {
+            background: #f0f0f0;
         }
         .doc-item i {
             color: #d32f2f;
@@ -397,7 +417,6 @@
             font-weight: bold;
             color: #2E7D32;
         }
-        /* Nouveaux styles pour les champs de devise et montant personnalisé */
         #custom-amount, #currency {
             padding: 12px;
             border: 2px solid #2E7D32;
@@ -409,6 +428,64 @@
         #custom-amount:focus, #currency:focus {
             border-color: #1976D2;
             outline: none;
+        }
+        /* Nouveau style pour les boutons de paiement réels */
+        .real-payment-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+            margin: 30px 0;
+        }
+        .paypal-button, .mobilemoney-button {
+            padding: 15px 30px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.3s;
+            color: white;
+        }
+        .paypal-button {
+            background-color: #0070ba;
+        }
+        .paypal-button:hover {
+            background-color: #005ea6;
+            transform: scale(1.05);
+        }
+        .mobilemoney-button {
+            background-color: #2E7D32;
+        }
+        .mobilemoney-button:hover {
+            background-color: #1b5e20;
+            transform: scale(1.05);
+        }
+        /* ===== NEWSLETTER ===== */
+        .newsletter-form {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        .newsletter-form input {
+            padding: 12px;
+            border: 2px solid #2E7D32;
+            border-radius: 5px;
+            min-width: 250px;
+        }
+        .newsletter-form button {
+            background: #2E7D32;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        .newsletter-form button:hover {
+            background: #1b5e20;
         }
         /* ===== FOOTER ===== */
         footer {
@@ -481,7 +558,7 @@
         <div class="container header-container">
             <div class="logo">
                 <!-- Remplacez par votre logo -->
-                <img src="logo.png" alt="Logo FMI ONG" height="80">
+                <img src="logo.png" alt="Logo FMI ONG" height="80" loading="lazy">
                 <span class="logo-text">FMI ONG</span>
             </div>
             <nav>
@@ -567,7 +644,7 @@
                 </div>
                 <div class="col">
                     <!-- Image à propos -->
-                    <img src="about.jpg" alt="Équipe FMI" class="img-fluid">
+                    <img src="about.jpg" alt="Équipe FMI ONG travaillant sur le terrain" class="img-fluid" loading="lazy">
                 </div>
             </div>
             <!-- Bailleurs -->
@@ -575,12 +652,12 @@
                 <h3>Nos bailleurs</h3>
                 <div class="logo-grid">
                     <!-- Remplacez par vos logos réels (images) -->
-                    <div class="logo-item"><img src="logo-giz.png" alt="GIZ"></div>
-                    <div class="logo-item"><img src="logo-pnud.png" alt="PNUD"></div>
-                    <div class="logo-item"><img src="logo-cafi.jpg" alt="CAFI"></div>
-                    <div class="logo-item"><img src="logo-acted.png" alt="ACTED"></div>
-                    <div class="logo-item"><img src="logo-cefi.png" alt="CEFI"></div>
-                    <div class="logo-item"><img src="logo-autre.png" alt="Autre"></div>
+                    <div class="logo-item"><img src="logo-giz.png" alt="Logo GIZ" loading="lazy"></div>
+                    <div class="logo-item"><img src="logo-pnud.png" alt="Logo PNUD" loading="lazy"></div>
+                    <div class="logo-item"><img src="logo-cafi.jpg" alt="Logo CAFI" loading="lazy"></div>
+                    <div class="logo-item"><img src="logo-acted.png" alt="Logo ACTED" loading="lazy"></div>
+                    <div class="logo-item"><img src="logo-cefi.png" alt="Logo CEFI" loading="lazy"></div>
+                    <div class="logo-item"><img src="logo-autre.png" alt="Autre partenaire" loading="lazy"></div>
                 </div>
             </div>
         </div>
@@ -670,44 +747,28 @@
         </div>
     </section>
 
-    <!-- ===== DOCUMENTS LÉGAUX ===== -->
+    <!-- ===== DOCUMENTS LÉGAUX (DYNAMIQUES AVEC LIENS GOOGLE DRIVE) ===== -->
     <section id="documents" class="section bg-light">
         <div class="container">
             <h2 class="section-title">Documents légaux</h2>
-            <p>Accédez à nos textes fondateurs et procès-verbaux. (Administrateur : vous pouvez ajouter d'autres documents via le serveur.)</p>
+            <p>Accédez à nos textes fondateurs et procès-verbaux. (Cliquez sur un document pour le télécharger)</p>
             <div class="doc-list">
-                <div class="doc-item"><i class="fas fa-file-pdf"></i> Statuts (2018) - PDF</div>
-                <div class="doc-item"><i class="fas fa-file-pdf"></i> Règlement intérieur (2018) - PDF</div>
-                <div class="doc-item"><i class="fas fa-file-pdf"></i> Acte notarié n° 03.12.20 - PDF</div>
-                <div class="doc-item"><i class="fas fa-file-pdf"></i> PV Assemblée constitutive 08/04/2018 - PDF</div>
-                <div class="doc-item"><i class="fas fa-file-pdf"></i> PV élections 05/04/2024 - PDF</div>
+                <a href="https://drive.google.com/your-file-id-1" class="doc-item" target="_blank"><i class="fas fa-file-pdf"></i> Statuts (2018) - PDF</a>
+                <a href="https://drive.google.com/your-file-id-2" class="doc-item" target="_blank"><i class="fas fa-file-pdf"></i> Règlement intérieur (2018) - PDF</a>
+                <a href="https://drive.google.com/your-file-id-3" class="doc-item" target="_blank"><i class="fas fa-file-pdf"></i> Acte notarié n° 03.12.20 - PDF</a>
+                <a href="https://drive.google.com/your-file-id-4" class="doc-item" target="_blank"><i class="fas fa-file-pdf"></i> PV Assemblée constitutive 08/04/2018 - PDF</a>
+                <a href="https://drive.google.com/your-file-id-5" class="doc-item" target="_blank"><i class="fas fa-file-pdf"></i> PV élections 05/04/2024 - PDF</a>
             </div>
         </div>
     </section>
 
-    <!-- ===== ACTUALITÉS / PROJETS ===== -->
+    <!-- ===== ACTUALITÉS / PROJETS (DYNAMIQUE VIA JSON) ===== -->
     <section id="actualites" class="section">
         <div class="container">
             <h2 class="section-title">Actualités & Projets</h2>
-            <div class="cards">
-                <div class="card">
-                    <img src="projet1.jpg" alt="Projet cartographie">
-                    <h3>Appui à la cartographie participative des villages du Maniema</h3>
-                    <p>Description brève du projet.</p>
-                    <a href="#" class="btn-small">Lire la suite</a>
-                </div>
-                <div class="card">
-                    <img src="projet2.jpg" alt="Formation femmes">
-                    <h3>Formation des femmes à la collecte de données sur les droits fonciers</h3>
-                    <p>Description brève du projet.</p>
-                    <a href="#" class="btn-small">Lire la suite</a>
-                </div>
-                <div class="card">
-                    <img src="projet3.jpg" alt="Catering">
-                    <h3>Catering pour atelier régional sur l'agriculture durable</h3>
-                    <p>Description brève du projet.</p>
-                    <a href="#" class="btn-small">Lire la suite</a>
-                </div>
+            <div class="cards" id="blog-posts">
+                <!-- Les articles seront chargés dynamiquement ici -->
+                <div class="card">Chargement des actualités...</div>
             </div>
         </div>
     </section>
@@ -726,6 +787,13 @@
                         <textarea name="message" placeholder="Votre message" rows="5" required></textarea>
                         <button type="submit" class="btn btn-primary">Envoyer</button>
                     </form>
+                    <!-- ===== NEWSLETTER ===== -->
+                    <h3 style="margin-top: 40px;">Newsletter</h3>
+                    <p>Restez informé de nos actions</p>
+                    <form action="https://votrename.us21.list-manage.com/subscribe/post?u=xxx&amp;id=yyy" method="post" class="newsletter-form" target="_blank">
+                        <input type="email" name="EMAIL" placeholder="Votre email" required>
+                        <button type="submit">S'abonner</button>
+                    </form>
                 </div>
                 <div class="col">
                     <h3>Coordonnées</h3>
@@ -737,7 +805,7 @@
                     <p><i class="fas fa-phone-alt"></i> <strong>WANGA WABUSOLELA Vincent (Conseiller) :</strong> +243 82 325 13 64</p>
                     <p><i class="fas fa-phone-alt"></i> <strong>MAOMBI RAMAZANI Esther (Conseillère) :</strong> +243 82 754 81 64</p>
                     <p><i class="fas fa-phone-alt"></i> <strong>MULEKELWA MWALIBANDA (Conseiller) :</strong> +243 81 165 35 33</p>
-                    <p><i class="fas fa-envelope"></i> <strong>Email :</strong> fmiongmaniema9460@gmail.com</p>
+                    <p><i class="fas fa-envelope"></i> <strong>Email :</strong> contact@fmi-ong.org</p>
                     <!-- Réseaux sociaux -->
                     <div class="social-icons">
                         <a href="#"><i class="fab fa-facebook-f"></i></a>
@@ -764,19 +832,14 @@
                     <i class="fas fa-briefcase icon"></i>
                     <h3>Offres d'emploi</h3>
                     <div class="doc-list" style="text-align: left; margin-top: 15px;">
-                        <!-- Exemple avec documents -->
-                        <div class="doc-item" style="padding: 10px; margin-bottom: 8px;">
+                        <a href="https://drive.google.com/your-file-id-offre1" class="doc-item" style="padding: 10px; margin-bottom: 8px;" target="_blank">
                             <i class="fas fa-file-pdf"></i>
                             <span>Coordinateur de projet</span>
-                            <a href="#" class="btn-small" style="margin-left: auto;">Télécharger</a>
-                        </div>
-                        <div class="doc-item" style="padding: 10px; margin-bottom: 8px;">
+                        </a>
+                        <a href="https://drive.google.com/your-file-id-offre2" class="doc-item" style="padding: 10px; margin-bottom: 8px;" target="_blank">
                             <i class="fas fa-file-pdf"></i>
                             <span>Chargé de suivi évaluation</span>
-                            <a href="#" class="btn-small" style="margin-left: auto;">Télécharger</a>
-                        </div>
-                        <!-- Si pas d'offre, décommenter ceci et commenter les ci-dessus -->
-                        <!-- <p style="font-style: italic; color: #666;">Aucune offre d'emploi pour le moment.</p> -->
+                        </a>
                     </div>
                 </div>
                 <!-- Annonces -->
@@ -784,14 +847,10 @@
                     <i class="fas fa-bullhorn icon"></i>
                     <h3>Annonces</h3>
                     <div class="doc-list" style="text-align: left; margin-top: 15px;">
-                        <!-- Exemple avec document -->
-                        <div class="doc-item" style="padding: 10px; margin-bottom: 8px;">
+                        <a href="https://drive.google.com/your-file-id-annonce1" class="doc-item" style="padding: 10px; margin-bottom: 8px;" target="_blank">
                             <i class="fas fa-file-pdf"></i>
                             <span>Appel à candidature - Formation en cartographie</span>
-                            <a href="#" class="btn-small" style="margin-left: auto;">Télécharger</a>
-                        </div>
-                        <!-- Si pas d'annonce -->
-                        <!-- <p style="font-style: italic; color: #666;">Aucune annonce pour le moment.</p> -->
+                        </a>
                     </div>
                 </div>
                 <!-- Rapports -->
@@ -799,26 +858,21 @@
                     <i class="fas fa-file-alt icon"></i>
                     <h3>Rapports</h3>
                     <div class="doc-list" style="text-align: left; margin-top: 15px;">
-                        <!-- Exemples avec documents -->
-                        <div class="doc-item" style="padding: 10px; margin-bottom: 8px;">
+                        <a href="https://drive.google.com/your-file-id-rapport1" class="doc-item" style="padding: 10px; margin-bottom: 8px;" target="_blank">
                             <i class="fas fa-file-pdf"></i>
                             <span>Rapport annuel 2024</span>
-                            <a href="#" class="btn-small" style="margin-left: auto;">Télécharger</a>
-                        </div>
-                        <div class="doc-item" style="padding: 10px; margin-bottom: 8px;">
+                        </a>
+                        <a href="https://drive.google.com/your-file-id-rapport2" class="doc-item" style="padding: 10px; margin-bottom: 8px;" target="_blank">
                             <i class="fas fa-file-pdf"></i>
                             <span>Rapport d'activités 2023</span>
-                            <a href="#" class="btn-small" style="margin-left: auto;">Télécharger</a>
-                        </div>
-                        <!-- Si pas de rapport -->
-                        <!-- <p style="font-style: italic; color: #666;">Aucun rapport disponible pour le moment.</p> -->
+                        </a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ===== SECTION DON ===== -->
+    <!-- ===== SECTION DON RÉELLE ===== -->
     <section id="don" class="section" style="display: none;">
         <div class="container">
             <h2 class="section-title">Faire un don</h2>
@@ -860,28 +914,31 @@
 
             <p style="margin-top: 20px;">Choisissez votre moyen de paiement :</p>
             <div class="payment-methods">
-                <div class="payment-method" data-method="mobile">
-                    <i class="fas fa-mobile-alt"></i>
-                    <p>Mobile Money</p>
-                </div>
-                <div class="payment-method" data-method="card">
-                    <i class="fas fa-credit-card"></i>
-                    <p>Carte bancaire</p>
-                </div>
                 <div class="payment-method" data-method="paypal">
                     <i class="fab fa-paypal"></i>
                     <p>PayPal</p>
                 </div>
-                <div class="payment-method" data-method="bank">
-                    <i class="fas fa-university"></i>
-                    <p>Virement bancaire</p>
+                <div class="payment-method" data-method="mobile">
+                    <i class="fas fa-mobile-alt"></i>
+                    <p>Mobile Money</p>
                 </div>
             </div>
 
             <div class="don-action">
                 <p>Montant sélectionné : <span id="selected-amount-display">0</span></p>
                 <p>Moyen de paiement : <span id="selected-method-display">Non sélectionné</span></p>
-                <button id="confirm-don" class="btn btn-primary" style="margin-top: 20px;" disabled>Confirmer le don</button>
+                <!-- Boutons de paiement réels -->
+                <div class="real-payment-buttons" id="real-payment-buttons" style="display: none;">
+                    <button id="paypal-pay" class="paypal-button"><i class="fab fa-paypal"></i> Payer avec PayPal</button>
+                    <button id="mobilemoney-pay" class="mobilemoney-button"><i class="fas fa-mobile-alt"></i> Payer par Mobile Money</button>
+                </div>
+                <!-- Instructions Mobile Money -->
+                <div id="mobile-instructions" style="display: none; margin-top: 20px; padding: 20px; background: #f8f9fa; border-radius: 5px;">
+                    <h4>Paiement par Mobile Money</h4>
+                    <p>Effectuez votre transfert sur le numéro : <strong>+243 83 200 94 60</strong> (AWAZI RAMAZANI Guillaume)</p>
+                    <p>Montant : <span id="mobile-amount"></span></p>
+                    <p>Ensuite, envoyez la confirmation par email à <strong>contact@fmi-ong.org</strong> ou par SMS au même numéro.</p>
+                </div>
             </div>
         </div>
     </section>
@@ -1004,7 +1061,7 @@
             }
             if (slides.length > 0) startInterval();
 
-            // ===== GESTION DES DONS (MISE À JOUR) =====
+            // ===== GESTION DES DONS (RÉELLE) =====
             const donSection = document.getElementById('don');
             const merciSection = document.getElementById('merci');
             const montantSpan = document.getElementById('montant-don');
@@ -1012,29 +1069,29 @@
             const paymentMethods = document.querySelectorAll('.payment-method');
             const selectedAmountDisplay = document.getElementById('selected-amount-display');
             const selectedMethodDisplay = document.getElementById('selected-method-display');
-            const confirmBtn = document.getElementById('confirm-don');
+            const realPaymentButtons = document.getElementById('real-payment-buttons');
+            const paypalButton = document.getElementById('paypal-pay');
+            const mobileMoneyButton = document.getElementById('mobilemoney-pay');
+            const mobileInstructions = document.getElementById('mobile-instructions');
+            const mobileAmountSpan = document.getElementById('mobile-amount');
             const customAmountInput = document.getElementById('custom-amount');
             const currencySelect = document.getElementById('currency');
 
             let selectedAmount = 0;
             let selectedMethod = '';
-            let selectedCurrency = 'USD'; // devise par défaut
+            let selectedCurrency = 'USD';
 
-            // Fonction pour convertir une saisie avec virgule en nombre flottant
             function parseAmount(input) {
                 if (!input) return NaN;
-                // Remplacer la virgule par un point et enlever les espaces
                 let str = input.toString().replace(/,/g, '.').replace(/\s/g, '');
                 let num = parseFloat(str);
                 return isNaN(num) ? NaN : num;
             }
 
-            // Mise à jour du montant depuis l'input personnalisé
             function updateAmountFromInput() {
                 let val = parseAmount(customAmountInput.value);
                 if (!isNaN(val) && val > 0) {
                     selectedAmount = val;
-                    // Optionnel : reformater l'affichage avec la virgule
                     customAmountInput.value = val.toString().replace('.', ',');
                 } else {
                     selectedAmount = 0;
@@ -1042,19 +1099,6 @@
                 updateDisplay();
             }
 
-            // Mise à jour de l'affichage du montant sélectionné avec la devise
-            function updateDisplay() {
-                if (selectedAmount > 0) {
-                    let symbol = getCurrencySymbol(selectedCurrency);
-                    // Afficher avec deux décimales et virgule
-                    selectedAmountDisplay.textContent = symbol + ' ' + selectedAmount.toFixed(2).replace('.', ',');
-                } else {
-                    selectedAmountDisplay.textContent = '0';
-                }
-                updateConfirmButton();
-            }
-
-            // Obtenir le symbole de la devise
             function getCurrencySymbol(currency) {
                 const symbols = {
                     'USD': '$', 'EUR': '€', 'GBP': '£', 'JPY': '¥',
@@ -1063,29 +1107,47 @@
                 return symbols[currency] || currency;
             }
 
-            // Écouteur sur le champ personnalisé
+            function updateDisplay() {
+                if (selectedAmount > 0) {
+                    let symbol = getCurrencySymbol(selectedCurrency);
+                    selectedAmountDisplay.textContent = symbol + ' ' + selectedAmount.toFixed(2).replace('.', ',');
+                } else {
+                    selectedAmountDisplay.textContent = '0';
+                }
+                // Afficher les boutons de paiement seulement si montant et méthode sélectionnés
+                if (selectedAmount > 0 && selectedMethod !== '') {
+                    realPaymentButtons.style.display = 'flex';
+                    if (selectedMethod === 'mobile') {
+                        mobileMoneyButton.style.display = 'inline-block';
+                        paypalButton.style.display = 'none';
+                        mobileInstructions.style.display = 'block';
+                        mobileAmountSpan.textContent = getCurrencySymbol(selectedCurrency) + ' ' + selectedAmount.toFixed(2).replace('.', ',');
+                    } else if (selectedMethod === 'paypal') {
+                        paypalButton.style.display = 'inline-block';
+                        mobileMoneyButton.style.display = 'none';
+                        mobileInstructions.style.display = 'none';
+                    }
+                } else {
+                    realPaymentButtons.style.display = 'none';
+                    mobileInstructions.style.display = 'none';
+                }
+            }
+
             customAmountInput.addEventListener('input', updateAmountFromInput);
 
-            // Écouteur sur le changement de devise
             currencySelect.addEventListener('change', function() {
                 selectedCurrency = this.value;
                 updateDisplay();
             });
 
-            // Gestion des boutons de montant fixe
             donButtons.forEach(btn => {
                 btn.addEventListener('click', function() {
                     let amount = this.getAttribute('data-amount');
                     selectedAmount = parseFloat(amount);
-                    customAmountInput.value = amount; // synchronisation
+                    customAmountInput.value = amount;
                     updateDisplay();
                 });
             });
-
-            // Mise à jour du bouton de confirmation
-            function updateConfirmButton() {
-                confirmBtn.disabled = !(selectedAmount > 0 && selectedMethod !== '');
-            }
 
             // Gestion des moyens de paiement
             paymentMethods.forEach(method => {
@@ -1093,35 +1155,35 @@
                     paymentMethods.forEach(m => m.classList.remove('selected'));
                     this.classList.add('selected');
                     selectedMethod = this.getAttribute('data-method');
-                    let methodName = '';
-                    switch(selectedMethod) {
-                        case 'mobile': methodName = 'Mobile Money'; break;
-                        case 'card': methodName = 'Carte bancaire'; break;
-                        case 'paypal': methodName = 'PayPal'; break;
-                        case 'bank': methodName = 'Virement bancaire'; break;
-                    }
+                    let methodName = selectedMethod === 'paypal' ? 'PayPal' : 'Mobile Money';
                     selectedMethodDisplay.textContent = methodName;
-                    updateConfirmButton();
+                    updateDisplay();
                 });
             });
 
-            // Confirmation du don
-            confirmBtn.addEventListener('click', function() {
-                let symbol = getCurrencySymbol(selectedCurrency);
-                montantSpan.textContent = symbol + ' ' + selectedAmount.toFixed(2).replace('.', ',');
+            // Bouton PayPal
+            paypalButton.addEventListener('click', function() {
+                // Construction du lien PayPal (exemple avec PayPal.ME ou bouton standard)
+                let amount = selectedAmount.toFixed(2);
+                let currency = selectedCurrency;
+                // Redirection vers PayPal (à adapter avec votre lien PayPal.ME)
+                // Exemple avec PayPal.ME : https://www.paypal.me/votrecompte/10USD
+                let paypalLink = `https://www.paypal.me/FPI-ONG/${amount}${currency}`;
+                window.open(paypalLink, '_blank');
+                // Afficher la section merci
+                montantSpan.textContent = getCurrencySymbol(selectedCurrency) + ' ' + selectedAmount.toFixed(2).replace('.', ',');
                 donSection.style.display = 'none';
                 merciSection.style.display = 'block';
-                alert('Redirection vers ' + selectedMethodDisplay.textContent + ' pour le paiement de ' + symbol + ' ' + selectedAmount.toFixed(2) + '. (Simulation)');
-                // Réinitialisation
-                selectedAmount = 0;
-                selectedMethod = '';
-                selectedAmountDisplay.textContent = '0';
-                selectedMethodDisplay.textContent = 'Non sélectionné';
-                paymentMethods.forEach(m => m.classList.remove('selected'));
-                customAmountInput.value = '';
-                currencySelect.value = 'USD';
-                selectedCurrency = 'USD';
-                confirmBtn.disabled = true;
+            });
+
+            // Bouton Mobile Money
+            mobileMoneyButton.addEventListener('click', function() {
+                // Afficher les instructions (déjà visibles)
+                // On peut aussi envoyer un email de pré-notification
+                montantSpan.textContent = getCurrencySymbol(selectedCurrency) + ' ' + selectedAmount.toFixed(2).replace('.', ',');
+                donSection.style.display = 'none';
+                merciSection.style.display = 'block';
+                alert('Veuillez effectuer le transfert Mobile Money au +243 83 200 94 60 du montant indiqué, puis envoyez la confirmation par email.');
             });
 
             // Lien "Faire un don" dans le header
@@ -1166,8 +1228,50 @@
                 donSection.style.display = 'none';
                 merciSection.style.display = 'block';
             }
+
+            // ===== BLOG DYNAMIQUE (Actualités) =====
+            const blogContainer = document.getElementById('blog-posts');
+            // Exemple de données d'articles (à remplacer par vos vraies données)
+            const articles = [
+                {
+                    img: "projet1.jpg",
+                    alt: "Atelier de cartographie participative",
+                    title: "Appui à la cartographie participative des villages du Maniema",
+                    description: "Notre équipe a formé 20 animateurs locaux aux techniques de cartographie participative pour mieux identifier les besoins des communautés.",
+                    link: "#"
+                },
+                {
+                    img: "projet2.jpg",
+                    alt: "Formation des femmes sur les droits fonciers",
+                    title: "Formation des femmes à la collecte de données sur les droits fonciers",
+                    description: "30 femmes ont été formées à l'utilisation d'outils numériques pour documenter les conflits fonciers dans leurs villages.",
+                    link: "#"
+                },
+                {
+                    img: "projet3.jpg",
+                    alt: "Service traiteur lors d'un atelier",
+                    title: "Catering pour atelier régional sur l'agriculture durable",
+                    description: "Notre service traiteur a assuré la restauration pour 100 participants lors d'un atelier sur les techniques agricoles résilientes.",
+                    link: "#"
+                }
+            ];
+
+            function displayArticles() {
+                let html = '';
+                articles.forEach(article => {
+                    html += `
+                        <div class="card">
+                            <img src="${article.img}" alt="${article.alt}" loading="lazy">
+                            <h3>${article.title}</h3>
+                            <p>${article.description}</p>
+                            <a href="${article.link}" class="btn-small">Lire la suite</a>
+                        </div>
+                    `;
+                });
+                blogContainer.innerHTML = html;
+            }
+            displayArticles();
         });
     </script>
 </body>
-
 </html>
